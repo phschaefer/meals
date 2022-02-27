@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals/data/dummy_data.dart';
 import 'package:meals/CategoryItem.dart';
+import 'package:meals/data/dummy_data.dart';
 
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);
@@ -18,8 +18,10 @@ class Categories extends StatelessWidget {
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         children: DUMMY_CATEGORIES
-            .map((categorie) => CategoryItem(categorie.title, categorie.color))
-            .toList(),
+            .map(
+              (categorie) =>
+                  CategoryItem(categorie.id, categorie.title, categorie.color),
+            ).toList(),
       ),
     );
   }

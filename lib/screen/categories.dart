@@ -17,6 +17,7 @@ class Categories extends StatelessWidget {
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
+        padding: const EdgeInsets.all(15),
         children: DUMMY_CATEGORIES
             .map(
               (categorie) =>

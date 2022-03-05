@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:meals/config/RouteConfig.dart';
 import 'package:meals/model/meal.dart';
 
 class MealItemMapper extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -9,6 +12,7 @@ class MealItemMapper extends StatelessWidget {
   final Affordability affordability;
 
   const MealItemMapper({
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.duration,
@@ -42,12 +46,14 @@ class MealItemMapper extends StatelessWidget {
     }
   }
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(RouteConfig.getMealDetail, arguments: {'id': id});
+    }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),

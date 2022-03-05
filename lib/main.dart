@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals/config/RouteConfig.dart';
 import 'package:meals/screen/categories.dart';
 import 'package:meals/screen/categoryMeals.dart';
+import 'package:meals/screen/mealDetail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       routes: {
         RouteConfig.getDefault: (context) => const Categories(),
         RouteConfig.getCategoryMeals: (context) => CategoryMeals(),
+        RouteConfig.getMealDetail: (context) => MealDeatil(),
       },
       debugShowCheckedModeBanner: false,
     );

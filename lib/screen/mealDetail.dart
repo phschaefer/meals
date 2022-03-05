@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MealDeatil extends StatelessWidget {
-  const MealDeatil({Key? key}) : super(key: key);
+class MealDetail extends StatelessWidget {
+  const MealDetail({Key? key}) : super(key: key);
 
 
   @override

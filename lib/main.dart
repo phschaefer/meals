@@ -37,9 +37,11 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteConfig.getDefault,
       routes: {
         RouteConfig.getDefault: (context) => const Categories(),
-        RouteConfig.getCategoryMeals: (context) => CategoryMeals(),
-        RouteConfig.getMealDetail: (context) => MealDeatil(),
-      },
+        RouteConfig.getCategoryMeals: (context) => const CategoryMeals(),
+        RouteConfig.getMealDetail: (context) => const MealDeatil(),
+      }, onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (context) => const Categories());
+    },
       debugShowCheckedModeBanner: false,
     );
   }

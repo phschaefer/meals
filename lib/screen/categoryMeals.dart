@@ -3,6 +3,8 @@ import 'package:meals/Mapper/mealItemMapper.dart';
 import 'package:meals/data/dummy_data.dart';
 
 class CategoryMeals extends StatelessWidget {
+  const CategoryMeals({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =

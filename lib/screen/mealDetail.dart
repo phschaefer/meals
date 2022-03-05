@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MealDeatil extends StatelessWidget {
+  const MealDeatil({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screen/categories.dart';
 import 'package:meals/screen/favourite.dart';
+import 'package:meals/screen/widget/mainDrawer.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({Key? key}) : super(key: key);
@@ -20,11 +21,11 @@ class _TabsState extends State<Tabs> {
       'title': 'Your Favorite',
     },
   ];
-  int _selectedPageIndex = 0;
+  int selectedPageIndex = 0;
 
-  void _selectPage(int index) {
+  void selectPage(int index) {
     setState(() {
-      _selectedPageIndex = index;
+      selectedPageIndex = index;
     });
   }
 
@@ -32,15 +33,16 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(pages[_selectedPageIndex]['title'] as String),
+        title: Text(pages[selectedPageIndex]['title'] as String),
       ),
-      body: pages[_selectedPageIndex]['page'] as Widget,
+      drawer: const MainDrawer(),
+      body: pages[selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
+        onTap: selectPage,
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
-        currentIndex: _selectedPageIndex,
+        currentIndex: selectedPageIndex,
         // type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(

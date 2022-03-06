@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/Mapper/categoryItemMapper.dart';
+import 'package:meals/screen/widget/categoryItem.dart';
 import 'package:meals/data/dummy_data.dart';
 
 class Categories extends StatelessWidget {
@@ -17,7 +17,7 @@ class Categories extends StatelessWidget {
         children: DUMMY_CATEGORIES
             .map(
               (categorie) =>
-                  CategoryItemMapper(categorie.id, categorie.title, categorie.color),
+                  CategoryItem(categorie.id, categorie.title, categorie.color),
             ).toList(),
     );
   }

@@ -21,13 +21,13 @@ class MealDetail extends StatelessWidget {
         decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Colors.grey),
-    borderRadius: BorderRadius.circular(10),
-    ),
-    margin: const EdgeInsets.all(50),
-    padding: const EdgeInsets.all(10),
-    height: 150,
-    width: 300,
-    child: child,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      margin: const EdgeInsets.all(50),
+      padding: const EdgeInsets.all(10),
+      height: 150,
+      width: 300,
+      child: child,
     );
   }
   @override
@@ -60,7 +60,9 @@ class MealDetail extends StatelessWidget {
                         color: Theme.of(context).primaryColor,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 5, horizontal: 10),
+                            vertical: 5,
+                            horizontal: 10,
+                          ),
                           child: Text(
                             selectedMeal.ingredients[index],
                             style: const TextStyle(

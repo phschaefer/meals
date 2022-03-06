@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:meals/config/RouteConfig.dart';
 
-class CategoryItemMapper extends StatelessWidget {
+class CategoryItem extends StatelessWidget {
   final String id;
   final String title;
   final Color color;
 
-  CategoryItemMapper(this.id, this.title, this.color);
+  const CategoryItem(this.id, this.title, this.color, {Key? key}) : super(key: key);
 
   void selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(RouteConfig.getCategoryMeals, arguments: {'id': id, 'title': title });

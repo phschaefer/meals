@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/Mapper/mealItemMapper.dart';
+import 'package:meals/screen/widget/mealItem.dart';
 import 'package:meals/data/dummy_data.dart';
 
 class CategoryMeals extends StatelessWidget {
@@ -22,7 +22,7 @@ class CategoryMeals extends StatelessWidget {
       ),
       body: ListView.builder(
           itemBuilder: (context, index) {
-            return MealItemMapper(
+            return MealItem(
                 id: categoryMeals[index].id,
                 title: categoryMeals[index].title,
                 imageUrl: categoryMeals[index].imageUrl,

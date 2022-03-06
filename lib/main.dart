@@ -3,6 +3,7 @@ import 'package:meals/config/RouteConfig.dart';
 import 'package:meals/screen/categories.dart';
 import 'package:meals/screen/categoryMeals.dart';
 import 'package:meals/screen/mealDetail.dart';
+import 'package:meals/screen/settings.dart';
 import 'package:meals/screen/tabs.dart';
 
 void main() {
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteConfig.getDefault,
       routes: {
         RouteConfig.getDefault: (context) => const Tabs(),
+        RouteConfig.getSettings: (context) => Settings(),
         RouteConfig.getCategoryMeals: (context) => const CategoryMeals(),
         RouteConfig.getMealDetail: (context) => const MealDetail(),
       }, onUnknownRoute: (settings) {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meals/config/RouteConfig.dart';
 
 class MainDrawer extends StatelessWidget {
+
   const MainDrawer({Key? key}) : super(key: key);
 
-  Widget buildListTile(String title, IconData icon) {
+  Widget buildListTile(String title, IconData icon, VoidCallback tabHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -17,7 +19,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {},
+      onTap: tabHandler,
     );
   }
 
@@ -43,8 +45,10 @@ class MainDrawer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          buildListTile('Meals', Icons.restaurant),
-          buildListTile('Settings', Icons.settings),
+          buildListTile('Meals', Icons.restaurant,
+              () => {Navigator.of(context).pushNamed(RouteConfig.getDefault)}),
+          buildListTile('Settings', Icons.settings,
+              () => {Navigator.of(context).pushNamed(RouteConfig.getSettings)}),
         ],
       ),
     );

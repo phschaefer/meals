@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:meals/screen/widget/mainDrawer.dart';
 
 class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Setting!'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your Settings'),
+      ),
+      drawer: const MainDrawer(),
+      body: Center(
+        child: Text('Setting!'),
+      ),
     );
   }
 }

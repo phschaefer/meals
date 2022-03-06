@@ -46,7 +46,7 @@ class MainDrawer extends StatelessWidget {
             height: 20,
           ),
           buildListTile('Meals', Icons.restaurant,
-              () => {Navigator.of(context).pushNamed(RouteConfig.getDefault)}),
+              () => {Navigator.of(context).pushReplacementNamed(RouteConfig.getDefault)}),
           buildListTile('Settings', Icons.settings,
               () => {Navigator.of(context).pushNamed(RouteConfig.getSettings)}),
         ],

@@ -71,26 +71,33 @@ class MealDetail extends StatelessWidget {
                           ),
                         ),
                       ),
-                      itemCount: selectedMeal.ingredients.length),
-              ),
-              buildSectionTitle(context, 'Steps'),
-              buildContainer(
-                ListView.builder(
-                    itemBuilder: (context, index) => Column(
-                      children: [
-                        ListTile(
-                          leading: CircleAvatar(child: Text('# ${index+1}'),),
-                          title: Text(selectedMeal.steps[index]),
-                        ),
-                        const Divider(),
-                      ],
-                    ),
-                    itemCount: selectedMeal.steps.length
-                ),
-              ),
-            ],
-          ),
+                  itemCount: selectedMeal.ingredients.length),
+            ),
+            buildSectionTitle(context, 'Steps'),
+            buildContainer(
+              ListView.builder(
+                  itemBuilder: (context, index) => Column(
+                        children: [
+                          ListTile(
+                            leading: CircleAvatar(
+                              child: Text('# ${index + 1}'),
+                            ),
+                            title: Text(selectedMeal.steps[index]),
+                          ),
+                          const Divider(),
+                        ],
+                      ),
+                  itemCount: selectedMeal.steps.length),
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pop(mealId);
+        },
+        child: const Icon(Icons.delete),
+      ),
     );
   }
 }

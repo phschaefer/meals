@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
   };
 
   List<Meal> availableMeals = DUMMY_MEALS;
+  List<Meal> favouriteMeals =  [];
 
   void setFilters(Map<String, bool> filterData) {
     setState(() {
@@ -48,6 +49,24 @@ class _MyAppState extends State<MyApp> {
         return true;
       }).toList();
     });
+  }
+
+  void toggleFavourite(String mealdId) {
+    final existingIndex = favouriteMeals.indexWhere((meal) => meal.id == mealdId);
+
+    if(existingIndex >= 0) {
+      setState(() {
+        favouriteMeals.removeAt(existingIndex);
+      });
+    } else {
+      setState(() {
+        favouriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealdId),);
+      });
+    }
+  }
+
+  bool isMealFavourite(String id) {
+    return favouriteMeals.any((meal) => meal.id == id);
   }
 
   @override
@@ -74,10 +93,10 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: RouteConfig.getDefault,
       routes: {
-        RouteConfig.getDefault: (context) => const Tabs(),
+        RouteConfig.getDefault: (context) => Tabs(favouriteMeals),
         RouteConfig.getSettings: (context) => Settings(filters, setFilters),
         RouteConfig.getCategoryMeals: (context) => CategoryMeals(availableMeals),
-        RouteConfig.getMealDetail: (context) => const MealDetail(),
+        RouteConfig.getMealDetail: (context) => MealDetail(toggleFavourite, isMealFavourite),
       }, onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (context) => const Categories());
     },
